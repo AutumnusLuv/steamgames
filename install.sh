@@ -14,7 +14,7 @@ mkdir /tmp/steamgames-extract
 
 unzip -oq /tmp/steamgames.zip -d /tmp/steamgames-extract
 
-cp -r /tmp/steamgames-extract/*/* "$INSTALL_DIR"
+cp -r /tmp/steamgames-extract/steamgames-main/* "$INSTALL_DIR"
 
 echo "Done!"
 echo "Installed to $INSTALL_DIR"
