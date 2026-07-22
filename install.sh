@@ -3,13 +3,18 @@ set -e
 
 echo "Downloading Steamgames..."
 
-mkdir -p "$HOME/.steamgames"
+INSTALL_DIR="$HOME/.steamgames"
+
+mkdir -p "$INSTALL_DIR"
 
 curl -L https://github.com/AutumnusLuv/Steamgames/archive/refs/heads/main.zip -o /tmp/steamgames.zip
 
-unzip -oq /tmp/steamgames.zip -d /tmp
+rm -rf /tmp/steamgames-extract
+mkdir /tmp/steamgames-extract
 
-cp -r /tmp/Steamgames-main/* "$HOME/.steamgames"
+unzip -oq /tmp/steamgames.zip -d /tmp/steamgames-extract
+
+cp -r /tmp/steamgames-extract/*/* "$INSTALL_DIR"
 
 echo "Done!"
-echo "Installed to $HOME/.steamgames"
+echo "Installed to $INSTALL_DIR"
